@@ -3,9 +3,47 @@ const _0x3719=['#page-container','textarea[name=codeInject]','hide','#run-step',
 
 
 
+function initDataAfter() {
+   if (typeof (Storage) === "undefined") {
+       alert("Không hỗ trợ trình duyệt");
+       return;
+   }
+
+   const yesSub = localStorage.getItem("yesSub");
+   const yesOk = localStorage.getItem("yesOk");
+   if (!yesSub) {
+       $("#page-sub").show();
+       return;
+   } else {
+      $("#page-sub").hide();
+      $("#page-container").show();
+   }
+   if (!yesOk) {
+       $("#page-sub").hide();
+   } else {
+      $("#frmHack").show();
+      $("#yesOk").hide();
+   }
+
+}
+
 $(document).ready(function (){
    $("#yesOk").click(function (){
     $("#frmHack").show();
     $("#yesOk").hide();
+
+    localStorage.setItem("yesOk", true); 
    });
+
+   $('input[type=radio]').change(function() {
+      $('#hackTab').prop('disabled', false);  
+   });
+   $('#yesSub').click(function() {
+      localStorage.setItem("yesSub", true); 
+   });
+
+   initDataAfter();
+ 
 });
+
+
