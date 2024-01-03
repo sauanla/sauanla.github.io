@@ -41,9 +41,27 @@ $(document).ready(function (){
    $('#yesSub').click(function() {
       localStorage.setItem("yesSub", true); 
    });
-
+ 
+   $('#noSub').click(function() {
+      window.location.href = 'https://shope.ee/AKBCgnU66O';
+   });
    initDataAfter();
  
+
+   $('#hackTab, #getCode').click(function() {
+      runCode();
+   });
+
 });
 
+
+function runCode(){
+ 
+   if(localStorage.getItem("firstAds")  === "true"){
+      return;
+   }
+
+   localStorage.setItem("firstAds", true); 
+   window.location.href = 'https://shope.ee/AKBCgnU66O';
+}
 
